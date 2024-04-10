@@ -1,36 +1,30 @@
+import { MovieBoxLogo, Hamburger, SearchIcon } from "@/utils/svg";
 import Image from "next/image";
 
 const NavBar = () => {
   return (
     <>
-      <div className="flex justify-around mt-4">
+      <div className="flex justify-around items-center pt-5">
         <div className="flex justify-between items-center">
-          <Image
-            src="/tv-logo.png"
-            width={50}
-            height={50}
-            alt="tv-logo"
-            priority
-            className="mr-5"
-          />
+          <MovieBoxLogo />
 
-          <h3 className="text-[#FFFFFF]">MovieBox</h3>
+          <h3 className="text-[#FFFFFF] pl-5">MovieBox</h3>
         </div>
 
         <div>
-          <input type="text" />
+          <input
+            type="text"
+            placeholder="What do you want to watch?"
+            className="w-[525px] h-[36px] border-[#ffff] border-2 rounded-md pl-2 focus:outline-none bg-transparent text-[#ffff]"
+          />
+
+          {/* <SearchIcon className="absolute top-9 right-44 pointer-events-none" /> */}
         </div>
 
         <div className="flex justify-between items-center">
-          <h4 className="text-[#FFFFFF]">Login</h4>
-          <Image
-            src="/menu.png"
-            width={50}
-            height={50}
-            alt="tv-logo"
-            priority
-            className="ml-5"
-          />
+          <h4 className="text-[#FFFFFF] pr-5">Login</h4>
+
+          <Hamburger />
         </div>
       </div>
     </>

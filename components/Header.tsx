@@ -1,7 +1,11 @@
 import NavBar from "./NavBar";
 import { IMDB, Tomato, PlayIcon } from "@/utils/svg";
+import { fetchTrending } from "@/utils/api";
 
-const Header = () => {
+const Header = async () => {
+  const data = await fetchTrending();
+  console.log(data);
+
   return (
     <div
       className="bg-cover bg-no-repeat"
@@ -27,11 +31,7 @@ const Header = () => {
             <span className="pl-2">97%</span>
           </div>
         </div>
-        <p className="py-2">
-          John Wick is on the run after killing a member of the international
-          assassins' guild, and with a $14 million price tag on his head, he is
-          the target of hit men and women everywhere.
-        </p>
+        <p className="py-2">{data.overview}</p>
         <div className="border-none bg-rose-700 rounded-lg w-[169px] py-4 mt-4">
           <h6 className="text-sm font-bold text-center">Watch Trailer</h6>
 

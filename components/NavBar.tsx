@@ -1,12 +1,15 @@
 import { MovieBoxLogo, Hamburger, SearchIcon } from "@/utils/svg";
 import Image from "next/image";
+import Link from "next/link";
 
 const NavBar = () => {
   return (
     <>
       <div className="flex justify-around items-center pt-5">
         <div className="flex justify-between items-center">
-          <MovieBoxLogo />
+          <Link href="/">
+            <MovieBoxLogo />
+          </Link>
 
           <h3 className="text-[#FFFFFF] pl-5">MovieBox</h3>
         </div>

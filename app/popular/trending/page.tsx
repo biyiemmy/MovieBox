@@ -1,25 +1,24 @@
 import { IMDB, Tomato } from "@/utils/svg";
 import Image from "next/image";
-import { fetchPopularSeries } from "@/utils/api";
+import { fetchTrending } from "@/utils/api";
 import { Genre } from "@/utils/constants";
 import Link from "next/link";
-import Header from "@/components/Header";
+
 const page = async () => {
-  const data = await fetchPopularSeries();
+  const data = await fetchTrending();
   // console.log(data);
 
   return (
     <>
       <div className="dm_sans mt-10 mx-28">
         <div className="flex justify-between items-center">
-          <h2 className="font-bold text-3xl">Popular TV Series</h2>
-          <Link href="/popular/series">
-            <button className="text-rose-700">See more {">"}</button>
-          </Link>
+          <h2 className="font-bold text-3xl">Trending</h2>
+
+          <button className="text-rose-700">See more {">"}</button>
         </div>
 
         <div className="grid lg:grid-cols-4 gap-x-16">
-          {data.slice(0, 8).map((movie: any) => (
+          {data.map((movie: any) => (
             <div className="w-[250px] my-10" key={movie.id}>
               <Image
                 src={`https://image.tmdb.org/t/p/original${movie.poster_path}`}

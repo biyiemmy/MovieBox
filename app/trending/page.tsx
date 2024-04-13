@@ -1,19 +1,19 @@
 import { IMDB, Tomato } from "@/utils/svg";
 import Image from "next/image";
-import { fetchPopularSeries } from "@/utils/api";
+import { fetchTrending } from "@/utils/api";
 import { Genre } from "@/utils/constants";
 import Link from "next/link";
-import Header from "@/components/Header";
+
 const page = async () => {
-  const data = await fetchPopularSeries();
+  const data = await fetchTrending();
   // console.log(data);
 
   return (
     <>
       <div className="dm_sans mt-10 mx-28">
         <div className="flex justify-between items-center">
-          <h2 className="font-bold text-3xl">Popular TV Series</h2>
-          <Link href="/popular/series">
+          <h2 className="font-bold text-3xl">Trending</h2>
+          <Link href="/popular/trending">
             <button className="text-rose-700">See more {">"}</button>
           </Link>
         </div>

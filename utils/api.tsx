@@ -1,3 +1,39 @@
+export const fetchSeriesVideo = async () => {
+  try {
+    const response = await fetch(
+      `${process.env.TMDB_BASE_URL}/tv/${1}/videos?language=en-US`
+    );
+    if (!response.ok) {
+      throw new Error("Failed to fetch popular movies");
+    }
+
+    const data = await response.json();
+    console.log(data.results);
+    return data.results;
+  } catch (error) {
+    console.error("Error fetching popular movies:", error);
+    return [];
+  }
+};
+
+export const fetchMoviesVideo = async (id: number) => {
+  try {
+    const response = await fetch(
+      `${process.env.TMDB_BASE_URL}/movie/${id}/videos?language=en-US`
+    );
+    if (!response.ok) {
+      throw new Error("Failed to fetch popular movies");
+    }
+
+    const data = await response.json();
+    console.log(data.results);
+    return data;
+  } catch (error) {
+    console.error("Error fetching popular movies:", error);
+    return [];
+  }
+};
+
 export const fetchTrending = async () => {
   try {
     const response = await fetch(
@@ -8,7 +44,7 @@ export const fetchTrending = async () => {
     }
 
     const data = await response.json();
-    console.log(data.results);
+    // console.log(data.results);
     return data.results;
   } catch (error) {
     console.error("Error fetching popular movies:", error);
@@ -28,7 +64,7 @@ export const fetchPopularMovies = async () => {
     }
 
     const data = await response.json();
-    console.log(data.results);
+    // console.log(data.results);
     return data.results;
   } catch (error) {
     console.error("Error fetching popular movies:", error);
@@ -48,7 +84,7 @@ export const fetchPopularSeries = async () => {
     }
 
     const data = await response.json();
-    console.log(data.results);
+    // console.log(data.results);
     return data.results;
   } catch (error) {
     console.error("Error fetching popular movies:", error);
@@ -68,7 +104,7 @@ export const fetchAllPopularMovies = async (page = 1) => {
     }
 
     const data = await response.json();
-    console.log(data.results);
+    // console.log(data.results);
     return data.results;
   } catch (error) {
     console.error("Error fetching popular movies:", error);

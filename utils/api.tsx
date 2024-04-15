@@ -16,10 +16,12 @@ export const fetchSeriesVideo = async () => {
   }
 };
 
-export const fetchMoviesVideo = async (id: number) => {
+export const fetchMoviesVideo = async ({ videoId }: any) => {
+  console.log(videoId);
+
   try {
     const response = await fetch(
-      `${process.env.TMDB_BASE_URL}/movie/${id}/videos?language=en-US`
+      `${process.env.TMDB_BASE_URL}/movie/${videoId}/videos?language=en-US&api_key=${process.env.TMDB_API_KEY}`
     );
     if (!response.ok) {
       throw new Error("Failed to fetch popular movies");

@@ -1,20 +1,22 @@
 "use client";
-import ReactPlayer from "react-player";
-import { fetchMoviesVideo } from "@/utils/api";
-import { useRouter } from "next/router";
+import Sidebar from "../components/SideBar";
+import { usePathname, useParams } from "next/navigation";
+import VideoPlayer from "../components/VideoPlayer";
 
-const page = async () => {
-  const router = useRouter();
-  const { id } = router.query;
-  console.log(id);
+const page = () => {
+  // const pathname = usePathname();
+  // const pathnamee = pathname.split("/").pop();
+  // console.log(pathnamee);
 
-  const data =
-    await `https://api.themoviedb.org/3/movie/${id}/videos?language=en-US`;
-  console.log(data);
+  const videoId = useParams().movieID;
+  console.log(videoId);
 
   return (
     <>
-      <div>id</div>
+      <div>
+        <Sidebar />
+        <VideoPlayer videoId={videoId} />
+      </div>
     </>
   );
 };

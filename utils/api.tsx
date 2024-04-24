@@ -1,3 +1,12 @@
+export default async function getSimilar(movieID: number) {
+  const api_url = `${process.env.TMDB_BASE_URL}/movie/${movieID}/recommendations?language=en-US&api_key=${process.env.TMDB_API_KEY}`;
+  const res = await fetch(api_url);
+
+  if (!res.ok) throw new Error("Cannot get movie details");
+
+  return res.json();
+}
+
 export const fetchSeriesVideo = async () => {
   try {
     const response = await fetch(
@@ -9,19 +18,18 @@ export const fetchSeriesVideo = async () => {
 
     const data = await response.json();
     console.log(data.results);
-    return data.results;
+    // return data.results;
   } catch (error) {
     console.error("Error fetching popular movies:", error);
     return [];
   }
 };
 
-export const fetchMoviesVideo = async ({ videoId }: any) => {
-  console.log(videoId);
-
+export const fetchMoviesVideo = async (movie: number) => {
+  console.log(movie);
   try {
     const response = await fetch(
-      `${process.env.TMDB_BASE_URL}/movie/${videoId}/videos?language=en-US&api_key=${process.env.TMDB_API_KEY}`
+      `${process.env.TMDB_BASE_URL}/movie/${movie}/videos?language=en-US&api_key=${process.env.TMDB_API_KEY}`
     );
     if (!response.ok) {
       throw new Error("Failed to fetch popular movies");
@@ -29,7 +37,7 @@ export const fetchMoviesVideo = async ({ videoId }: any) => {
 
     const data = await response.json();
     console.log(data.results);
-    return data;
+    return data.results;
   } catch (error) {
     console.error("Error fetching popular movies:", error);
     return [];

@@ -14,7 +14,7 @@ const NavBar = () => {
           <h3 className="text-[#FFFFFF] pl-5">MovieBox</h3>
         </div>
 
-        <div>
+        <div className="hidden">
           <input
             type="text"
             placeholder="What do you want to watch?"

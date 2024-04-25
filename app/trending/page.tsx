@@ -6,7 +6,7 @@ import Link from "next/link";
 
 const page = async () => {
   const data = await fetchTrending();
-  // console.log(data);
+  console.log(data);
 
   return (
     <>

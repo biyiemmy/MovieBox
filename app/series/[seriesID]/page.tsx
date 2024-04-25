@@ -1,16 +1,14 @@
 import Sidebar from "@/components/SideBar";
-import { useParams } from "next/navigation";
-import VideoPlayer from "@/components/VideoPlayer";
+import SeriesPlayer from "@/components/SeriesPlayer";
+import Down from "@/components/Down";
 
 const page = () => {
-  // const movie_id = parseInt(useParams().movieID);
-  // console.log(movie_id);
-
   return (
     <>
       <div className="">
         <Sidebar />
-        <VideoPlayer />
+        <SeriesPlayer />
+        <Down />
       </div>
     </>
   );

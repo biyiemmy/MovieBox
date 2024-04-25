@@ -3,15 +3,15 @@ import React, { useEffect, useState } from "react";
 import { useParams } from "next/navigation";
 import ReactPlayer from "react-player";
 
-const VideoPlayer = () => {
-  const { movieID } = useParams();
-  console.log(movieID);
+const SeriesPlayer = () => {
+  const { seriesID } = useParams();
+  // console.log(seriesID);
   const [videoUrl, setVideoUrl] = useState("");
 
   useEffect(() => {
     const fetchVideoUrl = async () => {
       const res = await fetch(
-        `https://api.themoviedb.org/3/movie/${movieID}/videos?language=en-US&api_key=d4b117a289716b6363ecbc9ff8d1861c`
+        `https://api.themoviedb.org/3/tv/${seriesID}/videos?language=en-US&api_key=d4b117a289716b6363ecbc9ff8d1861c`
       );
 
       const data = await res.json();
@@ -19,7 +19,9 @@ const VideoPlayer = () => {
 
       const trailer = data.results.find(
         (result: any) =>
-          result.type === "Trailer" && result.name === "Official Trailer"
+          result.type === "Trailer" ||
+          result.name === "Official Trailer" ||
+          result.type === "Featurette"
       );
 
       const key = trailer.key;
@@ -31,7 +33,7 @@ const VideoPlayer = () => {
     };
 
     fetchVideoUrl();
-  }, [movieID]);
+  }, [seriesID]);
 
   return (
     <>
@@ -52,4 +54,4 @@ const VideoPlayer = () => {
   );
 };
 
-export default VideoPlayer;
+export default SeriesPlayer;

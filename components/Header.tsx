@@ -4,10 +4,10 @@ import { fetchTrending } from "@/utils/api";
 
 const Header = async () => {
   const data = await fetchTrending();
-  // console.log(data);
+  console.log(data);
 
   return (
-    <div className="w-fit">
+    <div className="">
       {data.slice(0, 1).map((movie: any) => (
         <div
           key={movie.id}
@@ -15,6 +15,7 @@ const Header = async () => {
           style={{
             backgroundImage: `url(https://image.tmdb.org/t/p/original${movie.backdrop_path})`,
             width: "100%",
+            maxWidth: "100%",
             height: "600px",
           }}
         >

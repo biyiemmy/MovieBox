@@ -20,7 +20,7 @@ const page = async () => {
 
         <div className="grid lg:grid-cols-4 gap-x-16">
           {data.slice(0, 8).map((movie: any) => (
-            <Link href={`/movies/${movie.id}`}>
+            <Link key={movie.id} href={`/movies/${movie.id}`}>
               <div className="w-[250px] my-10" key={movie.id}>
                 <Image
                   src={`https://image.tmdb.org/t/p/original${movie.poster_path}`}

@@ -1,3 +1,4 @@
+import Image from "next/image";
 import { useParams } from "next/navigation";
 import { useEffect, useState } from "react";
 
@@ -27,7 +28,7 @@ const Recommend = () => {
       <div className="grid lg:grid-cols-4 gap-y-4 gap-x-4">
         {similar.slice(0, 8).map((movie: any) => (
           <div key={movie.id} className="flex flex-col">
-            <img
+            <Image
               src={`https://image.tmdb.org/t/p/w500/${movie.poster_path}`}
               alt={movie.original_title}
               className="w-full h-auto"

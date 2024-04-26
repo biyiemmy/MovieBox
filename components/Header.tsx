@@ -19,7 +19,7 @@ const Header = async () => {
         >
           <NavBar />
 
-          <div className="text-[#ffff] sm:pl-12 sm:text-left lg:pl-28 pt-32 lg:w-[32%]">
+          <div className="text-[#ffff] text-left xs:px-8 md:pl-28 pt-32 md:w-[32%]">
             <h1 className="text-5xl font-bold">{movie.name}</h1>
             <div className="py-2 font-normal text-xs flex justify-between items-center w-[50%]">
               <div className="flex justify-between items-center">

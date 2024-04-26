@@ -14,11 +14,11 @@ const NavBar = () => {
           <h3 className="text-[#FFFFFF] pl-5">MovieBox</h3>
         </div>
 
-        <div className="hidden">
+        <div className="">
           <input
             type="text"
             placeholder="What do you want to watch?"
-            className="w-[525px] h-[36px] border-[#ffff] border-2 rounded-md pl-2 focus:outline-none bg-transparent text-[#ffff]"
+            className="w-[525px] h-[36px] border-[#ffff] border-2 rounded-md pl-2 focus:outline-none bg-transparent text-[#ffff] hidden lg:block"
           />
 
           {/* <SearchIcon className="absolute top-9 right-44 pointer-events-none" /> */}
